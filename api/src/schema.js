@@ -15,6 +15,7 @@ const typeDefs = gql`
     createdAt: String!
     name: String!
     type: String!
+    img: String!
     owner: User!
   }
 
@@ -34,7 +35,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    newPet(input: NewPetInput!): Pet!
+    addPet(input: NewPetInput!): Pet!
   }
 `
 
