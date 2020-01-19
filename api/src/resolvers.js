@@ -18,13 +18,20 @@ module.exports = {
       const pet = ctx.models.Pet.create(input)
       return pet
     }
+  },
+  Pet: {
+    owner(pet, _, ctx) {
+      return ctx.models.User.findOne()
+    }
+    // img(pet) {
+    //   return pet.type === "DOG"
+    //     ? "https://placedog.net/300/300"
+    //     : "http://placekitten.com/300/300"
+    // }
+  },
+  User: {
+    pets(user, _, ctx) {
+      return ctx.models.Pet.findMany()
+    }
   }
-  // Pet: {
-  //   img(pet) {
-  //     return pet.type === "DOG"
-  //       ? "https://placedog.net/300/300"
-  //       : "http://placekitten.com/300/300"
-  //   }
-  // },
-  // User: {}
 }
